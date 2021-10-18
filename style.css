@@ -1,0 +1,315 @@
+:root {
+    --main-bg-color: #121218;
+    --border-color: #6257e0;
+    --container-width: 500px;
+}
+
+body, html {
+    font-family: 'Nunito', sans-serif;
+    color: rgba(255, 255, 255, 0.39);
+    background: var(--main-bg-color);
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    flex-direction: row;
+}
+
+body, .drop-zone, .upload-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.nav {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    left: 5%;
+}
+
+.navContent {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.719);
+    /* font-weight: bold; */
+    font-size: 20px;
+    
+}
+
+.logoText {
+    margin-left: 10px
+}
+
+.logo {
+    color: white;
+    width: 35px;
+    transform: rotate(5deg)
+}
+
+.upload-container {
+    background: #24252526;
+    border-radius: 15px;
+    box-shadow: 1.5px 3px 7px 0px rgba(5, 6, 12, 0.801);
+    /* width: var(--container-width); */
+}
+
+.drop-zone {
+    width: var(--container-width);
+    min-height: 200px;
+    border: 2px dashed var(--border-color);
+    margin: 35px;
+    border-radius: 10px;
+    transition: all .2s ease;
+}
+
+.dragged.drop-zone {
+    background: var(--main-bg-color);
+    border-color: #433b9c69;
+}
+
+.icon-container {
+    width: 75px;
+    height: 100px;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.icon-container img {
+    width: 75px;
+    position: absolute;
+    transform-origin: bottom;
+    transition: transform 200ms ease-in-out;
+}
+
+.icon-container .center {
+    z-index: 2;
+}
+
+.dragged .icon-container .right {
+    transform: rotate(10deg) translateX(20px) scale(.9);
+    filter: grayscale(0.7) drop-shadow(1px 1px 10px) blur(2px) sepia(30%) brightness(85%);
+}
+
+.dragged .icon-container .left {
+    transform: rotate(-10deg) translateX(-20px) scale(.9);
+    filter: grayscale(0.7) drop-shadow(1px 1px 10px) blur(2px) sepia(30%) brightness(85%);
+}
+
+.dragged .icon-container .center {
+    transform: translateY(-5px);
+}
+
+#fileInput {
+    display: none;
+}
+
+#browseBtn {
+    color: var(--border-color);
+    cursor: pointer;
+    text-decoration: dotted underline;
+    margin-left: 1px;
+}
+
+.progress-container {
+    width: var(--container-width);
+    height: 70px;
+    border: 2px dotted var(--border-color);
+    margin-bottom: 30px;
+    border-radius: 5px;
+    position: relative;
+    display: none;
+}
+
+.progress-container .bg-progress {
+    background: var(--main-bg-color);
+    width: 0%;
+    height: 100%;
+    border-radius: 10%;
+    transform-origin: left;
+    transition: width .25s linear;
+    position: absolute;
+}
+
+.progress-container .inner-container {
+    position: absolute;
+    z-index: 1;
+    margin: 10px 25px;
+    width: calc(100% - 40px);
+}
+
+.perent-container {
+    margin-top: 3.5px;
+    font-size: 13px;
+}
+
+.progress-border {
+    border: 1px solid var(--border-color);
+    margin-top: 7px;
+    border-radius: 3px;
+}
+
+.progress-bar {
+    height: 2px;
+    width: 100%;
+    background: var(--border-color);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s linear;
+}
+
+.sharing-container {
+    width: var(--container-width);
+    margin-bottom: 20px;
+    display: none;
+}
+
+p {
+    opacity: .8;
+    text-align: center;
+}
+
+.sharing-container .input-container {
+    position: relative;
+}
+
+.sharing-container .input-container input {
+    background: var(--main-bg-color);
+    color: rgba(255, 255, 255, 0.267);
+    width: 100%;
+    outline: none;
+    border: 2px dashed #6257e027;
+    border-radius: 6px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.sharing-container .input-container input:hover {
+    color: rgba(255, 255, 255, 0.486);
+    border: 2px dashed #6257e06c;
+}
+
+.input-container img {
+    position: absolute;
+    height: 18px;
+    width: 20px;
+    right: 9px;
+    top: 9px;
+    cursor: pointer;
+}
+
+.email-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.email-container form {
+    width: 100%;
+    border: 2px dashed #6257e027;
+    border-radius: 6px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.email-container .field {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    width: 400px;
+}
+
+.email-container label {
+    margin-top: 25px;
+    font-style: inherit;
+    font-size: medium;
+    color: rgba(255, 255, 255, 0.267);
+}
+
+.email-container input {
+    font-size: medium;
+    font-weight: bold;
+    background: none;
+    color: rgba(255, 255, 255, 0.267);
+    border: none;
+    border-bottom: 2px solid #6257e027;
+    text-align: center;
+}
+
+.email-container input:focus {
+    outline: none;
+    color: rgba(255, 255, 255, 0.486);
+    border-bottom: 2px solid #6257e06c;
+}
+
+.email-container button {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 8px 40px;
+    margin-top: 15px;
+    background: var(--main-bg-color);
+    color: rgba(255, 255, 255, 0.26);
+    border: 1px solid #6257e027;
+    border-radius: 5px;
+    margin: 50px 0 0 0;
+}
+
+.email-container button:hover {
+    background: var(--main-bg-color);
+    color: rgba(255, 255, 255, 0.486);
+    border: 1px solid #6257e06c;
+}
+
+.toast {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    font-size: 18px;
+    transform: translate(-50%, 60px);
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: #24252526;
+    box-shadow: 1.5px 3px 7px 0px rgb(5 6 12 / 80%);
+    color: var(--border-color);
+    transition: transform ease-in-out 0.2s;
+}
+
+.upload-vector {
+    background: url(./share.svg) no-repeat center;
+    background-size: contain;
+    height: 50vh;
+    width: 50vw;
+}
+
+@media screen and (max-width: 900px) {
+    :root {
+        --container-width: 320px;
+    }
+    .upload-vector {
+        display: none;
+    }
+    .email-container .field {
+        flex-direction: column;
+    }
+    .email-container .field {
+        width: 300px;
+    }
+
+    .upload-container{
+        margin-top: 10%;
+    }
+
+    .navContent {
+        font-size: 18px;
+    }
+    
+}
