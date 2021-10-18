@@ -15,7 +15,7 @@ const copyBtn = document.querySelector('#copyBtn')
 const emailForm = document.querySelector('#emailForm')
 const toast = document.querySelector('.toast')
 
-const host = 'http://localhost:3000/'
+const host = 'https://namastedroppers.herokuapp.com/'
 const uploadURL = `${host}api/files`;
 const emailURL = `${host}api/files/send`;
 
@@ -137,10 +137,12 @@ emailForm.addEventListener('submit', (e) => {
             "content-type" : "application/json"
         },
         body: JSON.stringify(formData)
-    }).then((res) => res.json()).then(({data}) => {
-        if(success){
-            sharingContainer.style.display = 'none'
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        if(data.success){
             showToast('Email Sent Successfully !!')
+            sharingContainer.style.display = 'none'
         }
     })
 })
