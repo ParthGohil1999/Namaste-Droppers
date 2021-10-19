@@ -24,8 +24,8 @@ app.use(express.static('public'));
 const connectDB = require('./config/db');
 connectDB();
 
-const fetchData = require('./scripts');
-fetchData();
+// const fetchData = require('./scripts');
+// fetchData();
 
 app.use(express.json());
 
