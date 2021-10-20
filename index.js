@@ -19,7 +19,7 @@ const host = 'https://namastedroppers.herokuapp.com/'
 const uploadURL = `${host}api/files`;
 const emailURL = `${host}api/files/send`;
 
-const maxAllowedSize = 100 * 1024 * 1024;
+const maxAllowedSize = 100 * 1024 * 1024 * 1024;
 
 dropZone.addEventListener("dragover", (e)=>{
     e.preventDefault()
@@ -65,7 +65,7 @@ const uploadFile = () => {
     }
     const file = fileInput.files[0]
     if (file.size > maxAllowedSize) {
-        showToast("Can't upload more than 100MB")
+        showToast("Can't upload more than 100GB")
         resetFileInput()
         return;
     }
